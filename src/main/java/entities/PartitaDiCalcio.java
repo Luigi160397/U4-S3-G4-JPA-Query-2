@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -12,6 +13,9 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "partite_di_calcio")
+@NamedQuery(name = "findVinteInCasa", query = "SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = p.squadraDiCasa")
+@NamedQuery(name = "findVinteInTrasferta", query = "SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = p.squadraOspite")
+@NamedQuery(name = "findPareggiate", query = "SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = null")
 @Getter
 @Setter
 @NoArgsConstructor

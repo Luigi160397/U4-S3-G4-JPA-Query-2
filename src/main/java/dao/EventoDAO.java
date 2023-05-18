@@ -9,7 +9,9 @@ import javax.persistence.TypedQuery;
 
 import entities.Concerto;
 import entities.Evento;
+import entities.GaraDiAtletica;
 import entities.GenereConcerto;
+import entities.PartitaDiCalcio;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -74,6 +76,26 @@ public class EventoDAO {
 				Concerto.class);
 		getAllQuery.setParameter("genere", g);
 		return getAllQuery.getResultList();
+	}
+
+	public List<PartitaDiCalcio> getPartiteVinteInCasa() {
+		TypedQuery<PartitaDiCalcio> query = em.createNamedQuery("findVinteInCasa", PartitaDiCalcio.class);
+		return query.getResultList();
+	}
+
+	public List<PartitaDiCalcio> getPartiteVinteInTrasferta() {
+		TypedQuery<PartitaDiCalcio> query = em.createNamedQuery("findVinteInTrasferta", PartitaDiCalcio.class);
+		return query.getResultList();
+	}
+
+	public List<PartitaDiCalcio> getPartitePareggiate() {
+		TypedQuery<PartitaDiCalcio> query = em.createNamedQuery("findPareggiate", PartitaDiCalcio.class);
+		return query.getResultList();
+	}
+
+	public List<GaraDiAtletica> getGareDiAtleticaPerVincitore() {
+		TypedQuery<GaraDiAtletica> query = em.createNamedQuery("ordinaPerVincitore", GaraDiAtletica.class);
+		return query.getResultList();
 	}
 
 }

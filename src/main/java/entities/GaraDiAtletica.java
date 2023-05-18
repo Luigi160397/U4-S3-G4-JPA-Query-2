@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,6 +18,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "gare_di_atletica")
+@NamedQuery(name = "ordinaPerVincitore", query = "SELECT g FROM GaraDiAtletica g ORDER BY g.vincitore ASC")
 @Getter
 @Setter
 @NoArgsConstructor
