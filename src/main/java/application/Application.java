@@ -79,7 +79,7 @@ public class Application {
 		GaraDiAtletica atletica2 = new GaraDiAtletica("Salto in lungo", LocalDate.of(2033, 10, 18),
 				"Ma vieni ma chi sonooooo!", TipoEvento.PUBBLICO, 1000,
 				new HashSet<Partecipazione>(Arrays.asList(partecipazione, partecipazione2)), location2,
-				new HashSet<Persona>(Arrays.asList(aldo, giovanni)), giovanni);
+				new HashSet<Persona>(Arrays.asList(aldo, giovanni)), aldo);
 
 //		ld.save(location);
 //		ld.save(location2);
@@ -116,7 +116,7 @@ public class Application {
 
 		System.out.println();
 		log.info("------------Concerti per genere------------");
-		List<Concerto> trovati2 = ed.getConcertiPerGenere(GenereConcerto.ROCK);
+		List<Concerto> trovati2 = ed.getConcertiPerGenere(GenereConcerto.POP);
 
 		if (trovati2.size() > 0) {
 			trovati2.stream().forEach(c -> log.info(c.toString()));
